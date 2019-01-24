@@ -1,0 +1,2 @@
+1. Wyniki kostek trzymac w tablicy
+2. Przeszukiwac tablice i zapisywac odpowiednie liczniki (ile 3 ile 2 itd...)
