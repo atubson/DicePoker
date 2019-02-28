@@ -1,7 +1,9 @@
 // Variables with chances
 let chance = 3;
 let score = 0;
-// DOM strings object - object z zapisanymi nazwami 
+// Boolean array to check if list button was clicked
+let clicked = [false, false, false, false, false, false, false, false, false, false, false, false, false];
+// DOM strings object - object with saved path to dom elements 
     DOMString = {
         button: document.querySelector("#button"),
         dice0: document.getElementById("dice-0"),
@@ -77,35 +79,45 @@ let score = 0;
 
 function showRoll() {
     const rollResults = [];
-    if(chance === 3) {
-        DOMString.schoollist1.classList.toggle('score-list-box-disabled');
-        DOMString.schoollist2.classList.toggle('score-list-box-disabled');
-        DOMString.schoollist3.classList.toggle('score-list-box-disabled');
-        DOMString.schoollist4.classList.toggle('score-list-box-disabled');
-        DOMString.schoollist5.classList.toggle('score-list-box-disabled');
-        DOMString.schoollist6.classList.toggle('score-list-box-disabled');
-        DOMString.specificlistFull.classList.toggle('score-list-box-disabled');
-        DOMString.specificlistLS.classList.toggle('score-list-box-disabled');
-        DOMString.specificlistBS.classList.toggle('score-list-box-disabled');
-        DOMString.specificlist3x.classList.toggle('score-list-box-disabled');
-        DOMString.specificlist4x.classList.toggle('score-list-box-disabled');
-        DOMString.specificlistRescue.classList.toggle('score-list-box-disabled');
-        DOMString.specificlist5x.classList.toggle('score-list-box-disabled');
-        DOMString.schoollist1.classList.toggle('score-list-box');
-        DOMString.schoollist2.classList.toggle('score-list-box');
-        DOMString.schoollist3.classList.toggle('score-list-box');
-        DOMString.schoollist4.classList.toggle('score-list-box');
-        DOMString.schoollist5.classList.toggle('score-list-box');
-        DOMString.schoollist6.classList.toggle('score-list-box');
-        DOMString.specificlistFull.classList.toggle('score-list-box');
-        DOMString.specificlistLS.classList.toggle('score-list-box');
-        DOMString.specificlistBS.classList.toggle('score-list-box');
-        DOMString.specificlist3x.classList.toggle('score-list-box');
-        DOMString.specificlist4x.classList.toggle('score-list-box');
-        DOMString.specificlistRescue.classList.toggle('score-list-box');
-        DOMString.specificlist5x.classList.toggle('score-list-box');
-
-    }
+        if(clicked[0] === false) {
+            DOMString.schoollist1.className = 'score-list-box';
+        }
+        if (clicked[1] === false) {
+            DOMString.schoollist2.className = 'score-list-box';
+        }
+        if (clicked[2] === false) {
+            DOMString.schoollist3.className = 'score-list-box';
+        }
+        if (clicked[3] === false) {
+            DOMString.schoollist4.className = 'score-list-box';
+        }
+        if (clicked[4] === false) {
+            DOMString.schoollist5.className = 'score-list-box';
+        }
+        if (clicked[5] === false) {
+            DOMString.schoollist6.className = 'score-list-box';
+        }
+        if (clicked[6] === false) {
+            DOMString.specificlist3x.className = 'score-list-box';
+        }
+        if (clicked[7] === false) {
+            DOMString.specificlist4x.className = 'score-list-box';
+        }
+        if (clicked[8] === false) {
+            DOMString.specificlistFull.className = 'score-list-box';
+        }
+        if (clicked[9] === false) {
+            DOMString.specificlistLS.className = 'score-list-box';
+        }
+        if (clicked[10] === false) {
+            DOMString.specificlistBS.className = 'score-list-box';
+        }
+        if (clicked[11] === false) {
+            DOMString.specificlistRescue.className = 'score-list-box';
+        }
+        if (clicked[12] === false) {
+            DOMString.specificlist5x.className = 'score-list-box';
+        }
     Result.cleanResult();
     document.getElementById('dice-0').src = `img/dice-${2}.png`;
     console.log("Nacisnieto");
@@ -183,21 +195,45 @@ function showRoll() {
         Result.rescue = rollResults.reduce((prev, next) =>{
             return prev + next;
         })
-    
-    DOMString.schoollist1.innerHTML = `Jedynki punkty: ${Result.resultArray[0] * 1}`;
+    if(clicked[0] === false) {
+        DOMString.schoollist1.innerHTML = `Jedynki punkty: ${Result.resultArray[0] * 1}`;
+    }
+    if(clicked[1] === false) {
     DOMString.schoollist2.innerHTML = `Dwojki punkty: ${Result.resultArray[1] * 2}`;
+    }
+    if(clicked[2] === false) {
     DOMString.schoollist3.innerHTML = `Trojki punkty: ${Result.resultArray[2] * 3}`;
-    DOMString.schoollist4.innerHTML = `Czworki punkty: ${Result.resultArray[3] * 4}`;
+    }
+    if(clicked[3] === false) {
+        DOMString.schoollist4.innerHTML = `Czworki punkty: ${Result.resultArray[3] * 4}`;
+    }
+    if(clicked[4] === false) {
     DOMString.schoollist5.innerHTML = `Piatki punkty: ${Result.resultArray[4] * 5}`;
+    }
+    if(clicked[5] === false) {
     DOMString.schoollist6.innerHTML = `Szostki punkty: ${Result.resultArray[5] * 6}`;
+    }
+    if(clicked[8] === false) {
     DOMString.specificlistFull.innerHTML = `Full punkty: ${Result.full}`;
+    }
+    if(clicked[9] === false) {
     DOMString.specificlistLS.innerHTML = `Mały strit punkty: ${Result.small_straight}`;
+    }
+    if(clicked[10 === false]) {
     DOMString.specificlistBS.innerHTML = `Duży strit punkty: ${Result.big_straight}`;
+    }
+    if(clicked[6] === false) {
     DOMString.specificlist3x.innerHTML = `3X punkty : ${Result.x3 * 3}`;
+    }
+    if(clicked[7] === false) {
     DOMString.specificlist4x.innerHTML = `4X punkty : ${(Result.x4 > 0)?((Result.x4 * 4) + 20) : 0}`;
+    }
+    if(clicked[11] === false) {
     DOMString.specificlistRescue.innerHTML = `Rescue punkty : ${Result.rescue}`;
+    }
+    if(clicked[12] === false) {
     DOMString.specificlist5x.innerHTML = `5X punkty : ${Result.x5}`;
-
+    }
     chance--;
     switch (chance) {
         case 2:
@@ -210,28 +246,74 @@ function showRoll() {
             DOMString.chance0.style.color = 'red';
     }
     if (chance === 0) {
-        DOMString.btnRoll.classList.toggle("button-roll-disabled");
-        DOMString.btnRoll.classList.toggle("button-roll");
+        DOMString.btnRoll.className = "button-roll-disabled";
         DOMString.btnRoll.innerHTML = 'Choose';
     }
 }
 function handleClickOnList(event) {
-    console.log(event.srcElement.innerHTML);
+    event.srcElement.classList.toggle('score-list-box-disabled');
+    // function changing clicked index to true
+    changingClickedArray(event.srcElement.id);
     choosingResult(event);
     addingPoints(event);
 }
 function choosingResult(event) {
+    Result.cleanResult();
+    DOMString.btnRoll.className = "button-roll";
+    DOMString.btnRoll.innerHTML = 'Roll';
     chance = 3;
     DOMString.chance2.style.color = 'rgb(40, 172, 40)';
     DOMString.chance1.style.color = 'rgb(40, 172, 40)';
     DOMString.chance0.style.color = 'rgb(40, 172, 40)';
-    Result.cleanResult();
-    DOMString.btnRoll.classList.toggle("button-roll-disabled");
-    DOMString.btnRoll.classList.toggle("button-roll");
-    DOMString.btnRoll.innerHTML = 'Roll';
+    console.log(event);
 }
 function addingPoints(event) {
+    score = score + parseInt(event.srcElement.innerHTML.split(':',3)[1].trim());
+    DOMString.score.innerHTML = `Wynik<br> ${score}`;
+}
 
+function changingClickedArray(id) {
+    switch(id) {
+        case 'one':
+            clicked[0] = true;
+            break;
+        case 'two':
+            clicked[1] = true;
+            break;
+        case 'three':
+            clicked[2] = true;
+            break;
+        case 'four':
+            clicked[3] = true;
+            break;
+        case 'five':
+            clicked[4] = true;
+            break;
+        case 'six':
+            clicked[5] = true;
+            break;
+        case 'x3':
+            clicked[6] = true;
+            break;
+        case 'x4':
+            clicked[7] = true;
+            break;
+        case 'full':
+            clicked[8] = true;
+            break;
+        case 'little-straight':
+            clicked[9] = true;
+            break;
+        case 'big-straight':
+            clicked[10] = true;
+            break;
+        case 'rescue':
+            clicked[11] = true;
+            break;
+        case 'x5':
+            clicked[12] = true;
+            break;
+    }
 }
 DOMString.btnRoll.addEventListener('click', showRoll);
 DOMString.schoollist1.addEventListener('click', handleClickOnList);
