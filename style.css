@@ -147,6 +147,10 @@ body {
 
 }
 
+.dice-disabled {
+    display: none;
+}
+
 .dice img {
     width: 70px;
     height: 70px;
@@ -228,6 +232,9 @@ body {
     margin-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+.dice-saved-disabled {
+    display: none;
 }
 
 .dice-saved img {
